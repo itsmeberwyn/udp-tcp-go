@@ -23,15 +23,14 @@ func main() {
 	fmt.Println("Listening...")
 
 	for {
-		fmt.Println("hello")
 		var buf [512]byte
-		_, addr, err := conn.ReadFromUDP(buf[0:])
+		n, addr, err := conn.ReadFromUDP(buf[0:])
 		if err != nil {
 			fmt.Println(err)
 			return
 		}
 
-		fmt.Print("> ", string(buf[0:]), addr)
+		fmt.Printf("> data: %v, addr: %v, size: %v \n", string(buf[0:]), addr, n)
 
 		// Write back the message over UPD
 		// conn.WriteToUDP([]byte("Hello UDP Client\n"), addr)

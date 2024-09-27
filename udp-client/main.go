@@ -20,7 +20,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	_, err = conn.Write([]byte("message from client\n"))
+	_, err = conn.Write([]byte("message from client heheheelllooo\n"))
 	fmt.Println("send...")
 	if err != nil {
 		fmt.Println(err)
