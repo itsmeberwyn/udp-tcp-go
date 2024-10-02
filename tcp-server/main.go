@@ -29,6 +29,8 @@ func main() {
 		}
 		defer conn.Close()
 
+		fmt.Println("Connection stablished", conn.RemoteAddr())
+
 		for {
 			data, err := bufio.NewReader(conn).ReadString('\n')
 			if err != nil {
@@ -37,7 +39,7 @@ func main() {
 
 			fmt.Println("> ", string(data))
 
-			conn.Write([]byte("Reply back hello data received!"))
+			conn.Write([]byte("Reply back hello data received!\n"))
 		}
 
 	}
